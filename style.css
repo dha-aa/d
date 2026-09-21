@@ -101,6 +101,16 @@ h1 {
   margin-top: 4px;
 }
 
+.timeline-list .entry .what a {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.timeline-list .entry .what a:hover {
+  text-decoration: underline;
+}
+
 .experience-list {
   margin-top: 60px;
   display: flex;
@@ -137,6 +147,16 @@ h1 {
 .project-stack .name {
   font-size: clamp(22px, 2.8vw, 30px);
   font-weight: 600;
+}
+
+.project-stack .name a {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.project-stack .name a:hover {
+  text-decoration: underline;
 }
 
 .project-stack .desc {
