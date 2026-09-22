@@ -212,6 +212,35 @@ footer {
   background: #000000;
 }
 
+
+.Contributed-stack {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 640px;
+}
+
+.Contributed-stack .name {
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 600;
+}
+
+.Contributed-stack .name a {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.Contributed-stack .name a:hover {
+  text-decoration: underline;
+}
+
+.Contributed-stack .desc {
+  font-size: clamp(14px, 1.5vw, 17px);
+  opacity: 0.6;
+  margin-top: 6px;
+}
 @media (max-width: 600px) {
   #dots { display: none; }
 }
