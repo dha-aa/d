@@ -261,10 +261,6 @@ footer {
   cursor: pointer;
 }
 
-.paper-stack .name a:hover {
-  text-decoration: underline;
-}
-
 .paper-stack .desc {
   font-size: clamp(14px, 1.5vw, 17px);
   opacity: 0.6;
