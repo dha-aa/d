@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Blog</title>
-  <link rel="stylesheet" href="../blog.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="../css/blog.css">
 </head>
 <body>
 
@@ -18,11 +20,13 @@
 
     <div class="blog-content">
       <div class="blog-list">
+        <!-- BLOG_POSTS:START -->
         <div class="blog-post">
           <a href="building-ae-motion.html" class="blog-post-title">Building ae-motion</a>
           <div class="blog-post-meta">October 10, 2026</div>
-          <p class="blog-post-excerpt">I recently built ae-motion, an MCP (Model Context Protocol) server that lets you control Adobe After Effects using Claude. The idea was simple: why switch between applications when you can just tell an AI what you want to create?</p>
+          <p class="blog-post-excerpt">I recently built ae-motion, an MCP (Model Context Protocol) server that lets Claude (or any MCP client) build, animate, preview and render motion graphics in a live Adobe After Effects project. Ask for "a 5 second lower third with an eased slide-in," and the model creates the comp, adds layers, sets keyframes, checks a preview frame and kicks off a render — all in the project you have open.</p>
         </div>
+        <!-- BLOG_POSTS:END -->
       </div>
     </div>
   </div>

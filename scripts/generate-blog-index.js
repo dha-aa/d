@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const blogDir = path.join(__dirname, 'blog');
+const projectDir = path.join(__dirname, '..');
+const blogDir = path.join(projectDir, 'blog');
 const indexPath = path.join(blogDir, 'index.html');
 
 // Files to exclude
@@ -50,10 +51,14 @@ const blogListHTML = blogPosts.map(post => `
 // Read the template index.html
 let indexContent = fs.readFileSync(indexPath, 'utf-8');
 
-// Replace the blog-list content
+// Replace only the generated entries, preserving the surrounding page markup.
+const markers = /<!-- BLOG_POSTS:START -->[\s\S]*?<!-- BLOG_POSTS:END -->/;
+if (!markers.test(indexContent)) {
+  throw new Error('Blog index is missing BLOG_POSTS markers');
+}
 indexContent = indexContent.replace(
-  /<div class="blog-list">\s*<\/div>/,
-  `<div class="blog-list">${blogListHTML}\n      </div>`
+  markers,
+  `<!-- BLOG_POSTS:START -->${blogListHTML}\n        <!-- BLOG_POSTS:END -->`
 );
 
 // Write back to index.html
