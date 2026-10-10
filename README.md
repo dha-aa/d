@@ -2,7 +2,7 @@
 
 A lightweight static portfolio site with a small blog. The published page URLs remain at the project root and under `blog/`.
 
-Live site: [d-tau-taupe.vercel.app](https://d-tau-taupe.vercel.app)
+Live site: [d-tau-taupe.vercel.app](dha-aa.vercel.app)
 
 ## Project layout
 
