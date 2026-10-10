@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Building ae-motion</title>
+  <link rel="stylesheet" href="../blog.css">
+</head>
+<body>
+
+  <div class="blog-container">
+    <a href="index.html" class="back-link">← Back to blog</a>
+
+    <div class="blog-header">
+      <h1 class="blog-title">Building ae-motion: An MCP for After Effects</h1>
+      <div class="blog-meta">October 10, 2026</div>
+    </div>
+
+    <div class="blog-content">
+      <p>I recently built ae-motion, an MCP (Model Context Protocol) server that lets Claude (or any MCP client) build, animate, preview and render motion graphics in a live Adobe After Effects project. Ask for "a 5 second lower third with an eased slide-in," and the model creates the comp, adds layers, sets keyframes, checks a preview frame and kicks off a render — all in the project you have open.</p>
+
+      <h2>The Problem</h2>
+      <p>After Effects is powerful, but its interface can be overwhelming. Finding the right effect, adjusting keyframes, and managing layers takes time. I wanted to see if I could streamline this workflow by leveraging Claude's natural language understanding to control After Effects directly.</p>
+
+      <h2>How It Works</h2>
+      <p>ae-motion acts as a bridge between Claude and After Effects through a three-part architecture:</p>
+
+      <figure>
+        <div class="video-container">
+          <video src="https://github.com/user-attachments/assets/4734d955-5c97-4644-a387-f05d4dc0e2f6" controls loop muted preload="auto" playsinline></video>
+        </div>
+        <figcaption>Demo: Creating motion graphics with Claude</figcaption>
+      </figure>
+
+      <figure>
+        <div class="video-container">
+          <video src="https://github.com/user-attachments/assets/c05af0f1-3f7e-4a31-84ef-cbc0fb87006d" controls loop muted preload="auto" playsinline></video>
+        </div>
+        <figcaption>Demo: Timeline and animation control</figcaption>
+      </figure>
+
+      <p>The MCP server runs in Node.js and communicates with a CEP (Common Extensibility Platform) panel embedded in After Effects. The panel listens on localhost with a token-based authentication system, and executes ExtendScript commands to manipulate the project. When you ask Claude to "add a glow effect to this layer," it translates that request through the chain and executes it in your live After Effects project.</p>
+
+      <h2>What It Can Do</h2>
+      <p>The project includes 77 tools organized into thirteen groups:</p>
+
+      <ul>
+        <li><strong>Inspect</strong> — Get project info, comp details, layer properties, keyframes</li>
+        <li><strong>Project</strong> — Open, save, create comps, import footage</li>
+        <li><strong>Layers</strong> — Add, set, link, duplicate, reorder, precompose layers</li>
+        <li><strong>Timeline</strong> — Split, trim, shift, sequence layers, add markers</li>
+        <li><strong>Masks and mattes</strong> — Add masks, set track mattes</li>
+        <li><strong>Design</strong> — Align layers, set anchors, add shapes, layer styles</li>
+        <li><strong>Animate</strong> — Set properties, keyframes, expressions, effects, presets</li>
+        <li><strong>Motion</strong> — Named moves with springs, text reveals, transitions</li>
+        <li><strong>3D and camera</strong> — Camera moves, shakes, rigs, 3D settings, lights</li>
+        <li><strong>Preview and render</strong> — Preview frames, start renders, check status</li>
+        <li><strong>Audio</strong> — Beat markers, audio reactivity, sound cues, SFX</li>
+      </ul>
+
+      <h2>Technical Implementation</h2>
+      <p>The server is built with TypeScript and runs through Node.js. Key components include:</p>
+
+      <ul>
+        <li><strong>MCP Server</strong> — Implements the Model Context Protocol, exposing tools to AI clients</li>
+        <li><strong>CEP Panel</strong> — Extension panel that runs inside After Effects</li>
+        <li><strong>Bridge Server</strong> — HTTP server on localhost with token-based auth</li>
+        <li><strong>ExtendScript Execution</strong> — Converts tool calls to After Effects scripting commands</li>
+      </ul>
+
+      <h3>Architecture Details</h3>
+      <p>The CEP panel starts a small server on `127.0.0.1` (port 47670, or the next free port up to 47690) and writes its port and a random token to `~/.ae-motion-mcp/bridge.json`. The MCP server reads that file to find the panel. Every request includes the token for authentication, and the panel only listens on localhost for security.</p>
+
+      <h3>Challenges</h3>
+      <p>The biggest challenge was error handling and state management. After Effects scripting can be finicky, and operations need to be atomic — every mutating call is one undo step. I had to build robust validation, error messages with actionable hints, and a token meter to track context usage (ae-motion adds tool definitions and preview images to the model's context).</p>
+
+      <h2>Security</h2>
+      <p>Security was a priority:</p>
+
+      <ul>
+        <li>The panel only listens on `127.0.0.1` with random token authentication</li>
+        <li>File operations are restricted to allowed directories</li>
+        <li>The `run_jsx` escape hatch is disabled by default</li>
+        <li>Bridge file is readable only by the user</li>
+      </ul>
+
+      <h2>What's Next</h2>
+      <p>I'm continuing to add features and improve the tooling. The project is open source and the full documentation is available in the GitHub repository.</p>
+
+      <blockquote>The goal isn't to replace After Effects, but to make it more accessible through natural language control.</blockquote>
+
+      <p>If you're interested in trying it out or contributing, check out the <a href="https://github.com/dha-aa/ae-motion" target="_blank">GitHub repository</a>. It requires After Effects 2022 or later and Node.js 22.18 or later.</p>
+    </div>
+  </div>
+
+  <script>
+    // Add copy buttons to all code blocks
+    document.querySelectorAll('pre').forEach(pre => {
+      // Wrap pre in a div to handle button positioning
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-wrapper';
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+
+      const button = document.createElement('button');
+      button.className = 'copy-button';
+      button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+      </svg>`;
+      wrapper.appendChild(button);
+
+      button.addEventListener('click', async () => {
+        const code = pre.querySelector('code').textContent;
+        try {
+          await navigator.clipboard.writeText(code);
+          button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>`;
+          button.classList.add('copied');
+          setTimeout(() => {
+            button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>`;
+            button.classList.remove('copied');
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog Post Title</title>
+  <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+  <div class="blog-container">
+    <a href="index.html" class="back-link">← Back to blog</a>
+
+    <div class="blog-header">
+      <h1 class="blog-title">Your Blog Post Title</h1>
+      <div class="blog-meta">January 1, 2026</div>
+    </div>
+
+    <div class="blog-content">
+      <p>Your blog content goes here. Write in HTML and it will be automatically formatted as a proper blog page. Use <em>italics</em> for emphasis and em-dashes (—) for proper punctuation.</p>
+
+      <h2>Section Heading</h2>
+      <p>You can use standard HTML elements like headings, paragraphs, links, code blocks, lists, and more. This is a template — copy it to create new posts.</p>
+
+      <h3>Subheading</h3>
+      <p>Just write your content naturally using HTML tags. The styling will handle the rest.</p>
+
+      <ul>
+        <li>Item one — use em-dashes for punctuation</li>
+        <li>Item two</li>
+        <li>Item three</li>
+      </ul>
+
+      <pre><code>code example here</code></pre>
+
+      <blockquote>This is a blockquote for highlighting important text or quotes.</blockquote>
+
+      <figure>
+        <img src="your-image-url.jpg" alt="Descriptive alt text for accessibility" />
+        <figcaption>Figure 1: Caption describing the image</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <script>
+    // Add copy buttons to all code blocks
+    document.querySelectorAll('pre').forEach(pre => {
+      // Wrap pre in a div to handle button positioning
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-wrapper';
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+
+      const button = document.createElement('button');
+      button.className = 'copy-button';
+      button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+      </svg>`;
+      wrapper.appendChild(button);
+
+      button.addEventListener('click', async () => {
+        const code = pre.querySelector('code').textContent;
+        try {
+          await navigator.clipboard.writeText(code);
+          button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>`;
+          button.classList.add('copied');
+          setTimeout(() => {
+            button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>`;
+            button.classList.remove('copied');
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
