@@ -25,7 +25,9 @@ From the project root, run:
 ```sh
 node --check js/site.js
 node --check scripts/generate-blog-index.js
+node --check scripts/generate-gallery.js
 node scripts/generate-blog-index.js
+node scripts/generate-gallery.js
 git diff --check
 ```
 
