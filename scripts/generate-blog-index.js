@@ -67,8 +67,11 @@ fs.writeFileSync(indexPath, indexContent);
 console.log(`✅ Generated blog index with ${blogPosts.length} posts`);
 
 // Also fill the blog section on the homepage (index.html, HOME_BLOG markers).
+// Only the newest HOME_POSTS posts go on the homepage; "See all posts"
+// links to blog/index.html, which lists (and searches) every post.
 // Each card links to the post page; on the homepage the script opens the
 // post inline instead, and the link is the fallback.
+const HOME_POSTS = 5;
 const homePath = path.join(projectDir, 'index.html');
 if (fs.existsSync(homePath)) {
   let home = fs.readFileSync(homePath, 'utf-8');
@@ -76,7 +79,7 @@ if (fs.existsSync(homePath)) {
   if (!homeMarkers.test(home)) {
     throw new Error('index.html is missing HOME_BLOG markers');
   }
-  const cards = blogPosts.map((post, i) => `
+  const cards = blogPosts.slice(0, HOME_POSTS).map((post, i) => `
         <article class="post-card" style="--r:${i % 2 ? '0.6' : '-0.6'}deg">
           <span class="post-date">${post.date}</span>
           <h3><a class="post-link" href="blog/${post.file}" data-post="${post.file.replace(/\.html$/, '')}">${post.title}</a></h3>
@@ -85,5 +88,5 @@ if (fs.existsSync(homePath)) {
         </article>`).join('\n');
   home = home.replace(homeMarkers, `<!-- HOME_BLOG:START -->${cards}\n        <!-- HOME_BLOG:END -->`);
   fs.writeFileSync(homePath, home);
-  console.log(`✅ Updated homepage blog with ${blogPosts.length} posts`);
+  console.log(`✅ Updated homepage blog with ${Math.min(blogPosts.length, HOME_POSTS)} of ${blogPosts.length} posts`);
 }

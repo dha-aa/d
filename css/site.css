@@ -829,6 +829,7 @@ html:not(.js) .name-letters { background-size: 100% 34%; }
   min-height: 120px;
   background: #e6e3d8;
 }
+.polaroid img[height] { min-height: 0; }
 .js .polaroid img { opacity: 0; transition: opacity 0.5s ease; }
 .js .polaroid.ok img { opacity: 1; }
 .polaroid span {
@@ -836,10 +837,11 @@ html:not(.js) .name-letters { background-size: 100% 34%; }
   margin-top: 4px;
   font: 600 20px var(--hand);
 }
-.js .g-grid:not(.all) .polaroid.more { display: none; }
 
 .show-all {
-  display: block;
+  display: flex;
+  align-items: center;
+  width: fit-content;
   min-height: 48px;
   margin: 8px auto 0;
   padding: 10px 22px;
@@ -849,12 +851,11 @@ html:not(.js) .name-letters { background-size: 100% 34%; }
   box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.22);
   color: var(--ink);
   font: 400 17px var(--display);
-  cursor: pointer;
+  text-decoration: none;
   transform: rotate(-1.5deg);
   transition: transform 0.2s var(--ease);
 }
 .show-all:hover { transform: rotate(0) translateY(-3px); }
-.show-all[hidden] { display: none; }
 
 /* photo viewer */
 

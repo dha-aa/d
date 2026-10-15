@@ -4,11 +4,12 @@
 
 - `index.html` is the portfolio homepage; keep its published URL at the project root. Its Gallery and Blog sections are part of the homepage (in-page anchors `#gallery` and `#blog`; posts open inline at `#blog/<post>`).
 - `blog/` contains published blog pages. Keep existing page URLs stable. The homepage reads post content from these files.
-- `gallery/` contains the photos and a standalone `gallery/index.html`.
+- `gallery/` contains the photos, generated previews in `gallery/thumbs/`, and a standalone `gallery/index.html`.
 - `assets/` contains shared static assets such as `favicon.svg` and `me.jpg`.
 - `css/` contains `site.css`, `blog.css` (also loaded by the homepage; keep its rules scoped, no bare `html`/`body` selectors) and `gallery.css`.
 - `js/` contains homepage interaction code (`site.js`).
 - `scripts/` contains local build/content utilities, including `generate-blog-index.js` and `generate-gallery.js`.
+- `.githooks/pre-commit` reruns both generators when a commit touches `gallery/`, `blog/`, `templates/` or `scripts/`. Enable it once per clone with `git config core.hooksPath .githooks`.
 - `templates/` contains reusable source templates. Do not treat template files as published posts.
 
 ## Editing conventions
@@ -18,7 +19,8 @@
 - Keep article video preload settings as authored. Do not change them for performance reasons without explicit user direction.
 - When adding a blog post, copy `templates/blog-post.html` into `blog/`, replace its sample content and placeholders, then regenerate the listing.
 - The blog index generator owns only the content between `<!-- BLOG_POSTS:START -->` and `<!-- BLOG_POSTS:END -->` in `blog/index.html`, and between `<!-- HOME_BLOG:START -->` and `<!-- HOME_BLOG:END -->` in `index.html`. Preserve those markers and surrounding markup.
-- The gallery generator owns `gallery/index.html` (from `templates/gallery-template.html`) and the content between `<!-- HOME_GALLERY:START -->` and `<!-- HOME_GALLERY:END -->` in `index.html`.
+- The gallery generator owns `gallery/index.html` (from `templates/gallery-template.html`), `gallery/thumbs/`, and the content between `<!-- HOME_GALLERY:START -->` and `<!-- HOME_GALLERY:END -->` in `index.html`.
+- The homepage shows only the newest 9 photos (`HOME_VISIBLE`) and 5 posts (`HOME_POSTS`); the "See all" links go to `gallery/index.html` and `blog/index.html` (searchable).
 
 ## Validation
 

@@ -1,0 +1,13 @@
+#!/bin/sh
+# Rebuild the gallery and blog listings whenever a commit touches photos,
+# posts, templates or the generators, so new files show up on the site
+# without running the scripts by hand.
+# Enable once per clone: git config core.hooksPath .githooks
+
+changed=$(git diff --cached --name-only -- gallery blog templates scripts | grep -v '^gallery/thumbs/')
+[ -z "$changed" ] && exit 0
+
+node scripts/generate-gallery.js || exit 1
+node scripts/generate-blog-index.js || exit 1
+git add index.html blog/index.html gallery/index.html
+git add -A gallery/thumbs

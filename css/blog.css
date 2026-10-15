@@ -263,6 +263,29 @@
 
 /* ---------- standalone blog listing ---------- */
 
+.blog-page .blog-search { margin: -14px 0 34px; }
+.blog-page .blog-search label {
+  display: block;
+  margin-bottom: 6px;
+  font: 600 12px var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.blog-page .blog-search input {
+  width: min(100%, 420px);
+  min-height: 48px;
+  padding: 10px 14px;
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 3px 4px 0 rgba(29, 29, 34, 0.15);
+  color: var(--ink);
+  font: 16px var(--sans);
+}
+.blog-page .blog-search input:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+.blog-page .blog-search-status { margin: 10px 0 0; color: var(--muted); font: 12px var(--mono); }
+.blog-post[hidden] { display: none; }
+
 .blog-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));

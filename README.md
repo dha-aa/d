@@ -26,4 +26,24 @@ Live site: [dha-aa.vercel.app](dha-aa.vercel.app)
    node scripts/generate-blog-index.js
    ```
 
-The generator reads article HTML files from `blog/` and replaces only the entries between the `BLOG_POSTS` markers in `blog/index.html`.
+The generator reads article HTML files from `blog/` and replaces only the entries between the `BLOG_POSTS` markers in `blog/index.html`. The homepage shows the newest 5 posts; "See all posts" opens `blog/index.html` in a new tab, where every post is listed and searchable.
+
+## Gallery workflow
+
+Drop photos (`.jpg`, `.png`, `.webp`, `.gif`, `.svg`) into `gallery/`, then run:
+
+```sh
+node scripts/generate-gallery.js
+```
+
+It makes small previews in `gallery/thumbs/` (with macOS `sips`), sorts photos newest-first by the date in the filename, and updates `gallery/index.html` and the homepage (newest 9 photos; "See all photos" links to the full gallery). Clicking a photo opens the full-size file.
+
+## Automatic updates
+
+Turn on the git hook once per clone:
+
+```sh
+git config core.hooksPath .githooks
+```
+
+After that, any commit that adds or changes files in `gallery/` or `blog/` reruns both generators and includes their output in the commit.

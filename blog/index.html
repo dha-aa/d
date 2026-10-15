@@ -21,8 +21,14 @@
       <div class="blog-meta">Thoughts & writings</div>
     </div>
 
+    <div class="blog-search">
+      <label for="blogSearch">Search posts</label>
+      <input type="search" id="blogSearch" placeholder="type to filter…" autocomplete="off">
+      <p class="blog-search-status" id="blogSearchStatus" aria-live="polite"></p>
+    </div>
+
     <div class="blog-content">
-      <div class="blog-list">
+      <div class="blog-list" id="blogList">
         <!-- BLOG_POSTS:START -->
         <div class="blog-post">
           <a href="building-ae-motion.html" class="blog-post-title">Building ae-motion</a>
@@ -33,6 +39,35 @@
       </div>
     </div>
   </div>
+
+  <script>
+    // Filter the post cards by title, date and excerpt.
+    (function () {
+      var input = document.getElementById('blogSearch');
+      var status = document.getElementById('blogSearchStatus');
+      var posts = Array.prototype.slice.call(document.querySelectorAll('#blogList .blog-post'));
+      var texts = posts.map(function (p) { return p.textContent.toLowerCase(); });
+
+      function update() {
+        var words = input.value.toLowerCase().split(/\s+/).filter(Boolean);
+        var shown = 0;
+        posts.forEach(function (p, i) {
+          var match = words.every(function (w) { return texts[i].indexOf(w) !== -1; });
+          p.hidden = !match;
+          if (match) shown++;
+        });
+        var n = posts.length + (posts.length === 1 ? ' post' : ' posts');
+        status.textContent = !words.length ? n
+          : shown ? shown + ' of ' + n
+          : 'No posts match “' + input.value.trim() + '”';
+      }
+
+      var q = new URLSearchParams(location.search).get('q');
+      if (q) input.value = q;
+      input.addEventListener('input', update);
+      update();
+    })();
+  </script>
 
 </body>
 </html>

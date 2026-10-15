@@ -196,7 +196,8 @@
 
 // ==========================================================
 // Gallery + blog sections on the homepage.
-// - Gallery: polaroids fade in as they load, "Show all", photo viewer.
+// - Gallery: polaroids fade in as they load; photo viewer shows the full
+//   photo (data-full) instead of the thumbnail.
 // - Blog: a post opens inline under the cards (#blog/<post> deep links).
 //   Posts are read from blog/<post>.html; if that fails, the link works
 //   as a normal link.
@@ -217,7 +218,6 @@
   // ---------- gallery ----------
 
   var grid = document.getElementById('gGrid');
-  var more = document.getElementById('gMore');
   var shots = grid ? Array.prototype.slice.call(grid.querySelectorAll('.polaroid')) : [];
 
   shots.forEach(function (b, i) {
@@ -232,18 +232,6 @@
     b.addEventListener('click', function () { openViewer(i, b); });
   });
 
-  var hiddenCount = grid ? grid.querySelectorAll('.polaroid.more').length : 0;
-  if (more && hiddenCount) {
-    more.hidden = false;
-    more.textContent = 'Show all ' + shots.length + ' photos';
-    more.addEventListener('click', function () {
-      grid.classList.add('all');
-      more.hidden = true;
-      var first = grid.querySelector('.polaroid.more');
-      if (first) first.focus({ preventScroll: true });
-    });
-  }
-
   // ---------- photo viewer ----------
 
   var lb = document.getElementById('lb');
@@ -257,7 +245,7 @@
   function showPhoto(i) {
     lbIndex = (i + shots.length) % shots.length;
     var img = shots[lbIndex].querySelector('img');
-    lbImg.src = img.currentSrc || img.src;
+    lbImg.src = shots[lbIndex].getAttribute('data-full') || img.currentSrc || img.src;
     lbImg.alt = img.alt;
     lbCap.textContent = img.alt;
     lbCount.textContent = (lbIndex + 1) + ' / ' + shots.length;
