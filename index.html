@@ -4,85 +4,360 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>:D</title>
+<meta name="description" content="Dhananjay Singh: developer and video editor. AI agents, motion graphics and things I made.">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#19191c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Archivo:wght@400;600&amp;family=Caveat:wght@600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap">
+<link rel="stylesheet" href="css/blog.css">
 <link rel="stylesheet" href="css/site.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<div id="wrapper">
+<header class="topbar">
+  <a class="logo" href="#top" aria-label="Back to top">dha</a>
+  <nav aria-label="Sections">
+    <a href="#work">Work</a>
+    <a href="#made">Made</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="rec" aria-hidden="true"><span class="rec-dot"></span><span id="tc">00:00:00:00</span></div>
+</header>
 
-  <section data-index="1">
-    <p class="statement">If <a style="background-color: rgb(175, 213, 175);">"ai"</a> is going to be the last innovation humanity creates, I want to be a part of it.</p>
-  </section>
+<main id="main">
 
-  <section data-index="0">
-    <h1>Its me — Dhananjay</h1>
-    <p class="tagline">I like to build things.</p>
-  </section>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="sheet hero-sheet">
+      <p class="kicker">it's me —</p>
+      <h1 class="name"><span class="sr">Dhananjay</span><span class="name-letters" aria-hidden="true">Dhananjay</span></h1>
 
-  <section data-index="2" class="auto-page" data-page-id="experience">
-    <p class="statement page-heading">Where I've worked</p>
-    <div class="experience-list page-list">
-      <div class="entry">
-        <div class="role">AI Engineer</div>
-        <div class="what">Netherlands-based crypto company · Nov 2024 - Dec 2025 </div>
-        <div class="desc">Worked on AI agents, agent management, deployment, and building systems around agent-based workflows.</div>
+      <div class="hero-grid">
+        <div class="reveal">
+          <div class="idcard">
+            <svg class="paperclip" viewBox="0 0 26 70" fill="none" stroke="#8a8a92" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M8 50V12a5 5 0 0 1 10 0v44a8 8 0 0 1-16 0V18"/></svg>
+            <div class="photo">
+              <img src="assets/me.jpg" alt="Dhananjay holding a camera" width="360" height="480">
+              <span class="rec-tag" aria-hidden="true"><i></i>REC</span>
+            </div>
+            <div class="id-body">
+              <p class="tagline">I like to build things.</p>
+              <dl class="id-table">
+                <div><dt>ROLE</dt><dd>Developer &amp; video editor</dd></div>
+                <div><dt>BUILDS</dt><dd>AI agents, MCP tools</dd></div>
+                <div><dt>EDITS</dt><dd>Since 2019</dd></div>
+                <div><dt>GIT</dt><dd><a href="https://github.com/dha-aa" target="_blank" rel="noopener">github.com/dha-aa</a></dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <p class="note">Cuts footage by day,<br>ships AI agents by night.</p>
+          <div class="playground" aria-label="Things I do">
+            <span class="sticker" style="--x:0%;--y:4%;--r:-7deg;--c:#d9a066">VIDEO EDITING</span>
+            <span class="sticker round" style="--x:58%;--y:0%;--r:8deg;--c:#8fd8e3">MOTION<br>GRAPHICS</span>
+            <span class="sticker" style="--x:6%;--y:42%;--r:5deg;--c:#9fe39a">AI AGENTS</span>
+            <span class="sticker" style="--x:44%;--y:66%;--r:-9deg;--c:#ef6a55">WEB3</span>
+          </div>
+          <p class="hint">psst, the stickers are draggable ↑</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section data-index="3">
-    <p class="statement">Along the way</p>
-    <div class="timeline-list">
-      <div class="entry">
-        <div class="year">2025</div>
-        <div class="what"><a href="https://superteam.fun/earn/feed/submission/f26e31ee-bc18-4170-ba84-3aa94caa4d8a" target="_blank">Nosana Builders Challenge Hackthon $100 Bounty</a></div>
+  <!-- STATEMENT -->
+  <section class="statement-sec" aria-label="Why">
+    <p class="big" data-words>If <mark>"ai"</mark> is going to be the last innovation humanity creates, I want to be a part of it.</p>
+  </section>
+
+  <!-- WORK -->
+  <section class="work" id="work">
+    <div class="sheet pad">
+      <div class="sec-head reveal">
+        <h2><span class="hl">Where I've worked</span></h2>
+        <p class="scribble">(as an edit timeline, obviously)</p>
+      </div>
+
+      <div class="nle reveal" id="nle">
+        <div class="nle-bar"><span>Sequence: career_final_FINAL_v3</span><span class="nle-tc" id="nleTc">JAN 2019</span></div>
+        <div class="nle-scroll">
+          <div class="nle-body">
+            <div class="ruler" aria-hidden="true">
+              <span class="tlabel"></span>
+              <div class="lane">
+                <span style="--y:0">2019</span><span style="--y:1">2020</span><span style="--y:2">2021</span><span style="--y:3">2022</span>
+                <span style="--y:4">2023</span><span style="--y:5">2024</span><span style="--y:6">2025</span><span style="--y:7">2026</span>
+              </div>
+            </div>
+            <div class="track">
+              <span class="tlabel">V2</span>
+              <div class="lane"><div class="clip c-teal" data-s="5.83" style="--s:5.83;--e:7" title="AI Engineer, Nov 2024 – Dec 2025">AI Engineer<small>crypto co.</small></div></div>
+            </div>
+            <div class="track">
+              <span class="tlabel">V1</span>
+              <div class="lane"><div class="clip c-violet" data-s="0" style="--s:0;--e:7.8" title="Independent Video Editor, 2019 – present">Independent Video Editor <small class="inline">2019 → present</small></div></div>
+            </div>
+            <div class="track">
+              <span class="tlabel">A1</span>
+              <div class="lane">
+                <div class="clip c-green" data-s="5" style="--s:5;--e:5.98" title="2024: 2 YouTube channels">2 YouTube<small>channels</small></div>
+                <div class="clip c-green" data-s="6" style="--s:6.02;--e:7" title="2025: marketing company">Marketing<small>company</small></div>
+              </div>
+            </div>
+            <div class="track short">
+              <span class="tlabel">M</span>
+              <div class="lane"><a class="marker" data-s="6.4" style="--s:6.4" href="https://superteam.fun/earn/feed/submission/f26e31ee-bc18-4170-ba84-3aa94caa4d8a" target="_blank" rel="noopener">Nosana Builders Challenge · $100 bounty</a></div>
+            </div>
+            <div class="playhead" aria-hidden="true"><i><b>NOW</b></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="jobs reveal">
+        <article class="job">
+          <p class="meta"><span class="sw c-teal"></span>Nov 2024 – Dec 2025</p>
+          <h3>AI Engineer</h3>
+          <p class="where">Netherlands-based crypto company</p>
+          <p>Worked on AI agents, agent management, deployment, and building systems around agent-based workflows.</p>
+        </article>
+        <article class="job">
+          <p class="meta"><span class="sw c-violet"></span>2019 – present</p>
+          <h3>Independent Video Editor</h3>
+          <p class="where">Freelance</p>
+          <p>Edits for two YouTube channels and a marketing company, from raw footage to finished export, in Premiere Pro, After Effects, Photoshop and Final Cut Pro.</p>
+        </article>
+        <article class="job along">
+          <p class="meta"><span class="sw c-yellow"></span>Along the way · 2025</p>
+          <h3><a href="https://superteam.fun/earn/feed/submission/f26e31ee-bc18-4170-ba84-3aa94caa4d8a" target="_blank" rel="noopener">Nosana Builders Challenge</a></h3>
+          <p class="where">Hackathon</p>
+          <p>$100 bounty.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section data-index="7">
-    <p class="statement">Contributed to</p>
-    <div class="Contributed-stack">
-      <div>
-        <div class="name"><a href="https://github.com/browser-use/browser-use/pull/1592" target="_blank">browser-use/browser-use</a></div>
-        <div class="desc">Added missing grant_permissions method to DummyContext, fixing an AttributeError in test_browser_window_size.</div>
+  <!-- MADE -->
+  <section class="made" id="made">
+    <div class="sheet pad">
+      <div class="sec-head reveal">
+        <h2><span class="hl">Things I made</span></h2>
+        <p class="scribble">&amp; places I've contributed to</p>
       </div>
-      <div>
-        <div class="name"><a href="https://github.com/vercel/ai/pull/5932" target="_blank">vercel/ai</a></div>
-        <div class="desc">Added support for o3 &amp; o4-mini with developer systemMessageMode.</div>
+      <div class="made-grid">
+        <div class="term reveal" role="group" aria-label="Projects and contributions">
+          <div class="term-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>dha@mac: ~/projects</span></div>
+          <div class="term-body">
+            <p class="ln" style="--i:0"><span class="pr">$</span> ls ~/made</p>
+            <p class="ln" style="--i:1"><a href="https://github.com/dha-aa/ae-motion" target="_blank" rel="noopener">ae-motion/</a></p>
+            <p class="ln dim" style="--i:2">An MCP for After Effects that lets you edit using claude.</p>
+            <p class="ln gap" style="--i:3"><span class="pr">$</span> git log --contributed-to</p>
+            <p class="ln" style="--i:4"><a href="https://github.com/browser-use/browser-use/pull/1592" target="_blank" rel="noopener">browser-use/browser-use</a></p>
+            <p class="ln dim" style="--i:5">Added missing grant_permissions method to DummyContext, fixing an AttributeError in test_browser_window_size.</p>
+            <p class="ln" style="--i:6"><a href="https://github.com/vercel/ai/pull/5932" target="_blank" rel="noopener">vercel/ai</a></p>
+            <p class="ln dim" style="--i:7">Added support for o3 &amp; o4-mini with developer systemMessageMode.</p>
+            <p class="ln gap" style="--i:8"><span class="pr">$</span> <span class="caret"></span></p>
+          </div>
+        </div>
+
+        <div class="toolkit reveal">
+          <h3>Toolkit</h3>
+          <ul class="tiles">
+            <li><b style="--bg:#2a1f5c;--fg:#c6bfff">Pr</b>Premiere Pro</li>
+            <li><b style="--bg:#20204a;--fg:#b4b4ff">Ae</b>After Effects</li>
+            <li><b style="--bg:#0e2a44;--fg:#7cc6ff">Ps</b>Photoshop</li>
+            <li><b style="--bg:#1d1d22;--fg:#f1efe8">Fc</b>Final Cut Pro</li>
+            <li><b style="--bg:#f5e50a;--fg:#1d1d22">JS</b>JavaScript</li>
+            <li><b style="--bg:#f7a440;--fg:#1d1d22">₿</b>Bitcoin</li>
+            <li><b style="--bg:#8fd8e3;--fg:#1d1d22">AI</b>AI</li>
+            <li><b style="--bg:#8fb8ff;--fg:#1d1d22">Py</b>Python</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section data-index="5">
-    <p class="statement">Things I made</p>
-    <div class="project-stack">
-      <div>
-        <div class="name"><a href="https://github.com/dha-aa/ae-motion" target="_blank">ae-motion</a></div>
-        <div class="desc">An MCP for After Effects that lets you edit using claude.</div>
+  <!-- GALLERY -->
+  <section class="gallery-sec" id="gallery">
+    <div class="sheet pad">
+      <div class="sec-head reveal">
+        <h2><span class="hl">Gallery</span></h2>
+        <p class="scribble">unedited, mostly. click a photo.</p>
+      </div>
+      <div class="g-grid" id="gGrid">
+        <!-- HOME_GALLERY:START -->
+        <button class="polaroid" type="button" style="--r:-2.4deg" aria-label="Open photo: July 2026">
+          <img src="gallery/IMG_20260725_011726_501.webp" alt="July 2026" loading="lazy" decoding="async">
+          <span>July 2026</span>
+        </button>
+        <button class="polaroid" type="button" style="--r:-0.8deg" aria-label="Open photo: March 2026">
+          <img src="gallery/IMG_20260326_150105%20(2).jpg" alt="March 2026" loading="lazy" decoding="async">
+          <span>March 2026</span>
+        </button>
+        <button class="polaroid" type="button" style="--r:0.8deg" aria-label="Open photo: March 2026">
+          <img src="gallery/IMG_20260326_150243.jpg" alt="March 2026" loading="lazy" decoding="async">
+          <span>March 2026</span>
+        </button>
+        <button class="polaroid" type="button" style="--r:2.4deg" aria-label="Open photo: February 2026">
+          <img src="gallery/Videoshot_20260223_221251.jpg" alt="February 2026" loading="lazy" decoding="async">
+          <span>February 2026</span>
+        </button>
+        <button class="polaroid" type="button" style="--r:-1.6deg" aria-label="Open photo: February 2026">
+          <img src="gallery/Videoshot_20260223_221254.jpg" alt="February 2026" loading="lazy" decoding="async">
+          <span>February 2026</span>
+        </button>
+        <button class="polaroid" type="button" style="--r:0.0deg" aria-label="Open photo: October 2025">
+          <img src="gallery/Screenshot_2025-10-15-13-21-02-283_com.instagram.android.png" alt="October 2025" loading="lazy" decoding="async">
+          <span>October 2025</span>
+        </button>
+        <button class="polaroid" type="button" style="--r:1.6deg" aria-label="Open photo: September 2025">
+          <img src="gallery/IMG_20250925_162537.png" alt="September 2025" loading="lazy" decoding="async">
+          <span>September 2025</span>
+        </button>
+        <button class="polaroid" type="button" style="--r:-2.4deg" aria-label="Open photo: October 2024">
+          <img src="gallery/Firefly%2020241021125946%20(2).jpg" alt="October 2024" loading="lazy" decoding="async">
+          <span>October 2024</span>
+        </button>
+        <button class="polaroid" type="button" style="--r:-0.8deg" aria-label="Open photo: May 2024">
+          <img src="gallery/Firefly%2020240515091140%20(2).jpg" alt="May 2024" loading="lazy" decoding="async">
+          <span>May 2024</span>
+        </button>
+        <button class="polaroid more" type="button" style="--r:0.8deg" aria-label="Open photo: October 2023">
+          <img src="gallery/IMG_20231015_131740_522.jpg" alt="October 2023" loading="lazy" decoding="async">
+          <span>October 2023</span>
+        </button>
+        <button class="polaroid more" type="button" style="--r:2.4deg" aria-label="Open photo: June 2022">
+          <img src="gallery/IMG_20220629_062428.jpg" alt="June 2022" loading="lazy" decoding="async">
+          <span>June 2022</span>
+        </button>
+        <button class="polaroid more" type="button" style="--r:-1.6deg" aria-label="Open photo: June 2022">
+          <img src="gallery/IMG_20220626_060610.JPG" alt="June 2022" loading="lazy" decoding="async">
+          <span>June 2022</span>
+        </button>
+        <button class="polaroid more" type="button" style="--r:0.0deg" aria-label="Open photo: Undated">
+          <img src="gallery/1757748189275.png" alt="Undated" loading="lazy" decoding="async">
+          <span>Undated</span>
+        </button>
+        <button class="polaroid more" type="button" style="--r:1.6deg" aria-label="Open photo: Undated">
+          <img src="gallery/1761241929573.png" alt="Undated" loading="lazy" decoding="async">
+          <span>Undated</span>
+        </button>
+        <button class="polaroid more" type="button" style="--r:-2.4deg" aria-label="Open photo: Undated">
+          <img src="gallery/1771950942736.jpg" alt="Undated" loading="lazy" decoding="async">
+          <span>Undated</span>
+        </button>
+        <button class="polaroid more" type="button" style="--r:-0.8deg" aria-label="Open photo: Undated">
+          <img src="gallery/2%20(1).jpg" alt="Undated" loading="lazy" decoding="async">
+          <span>Undated</span>
+        </button>
+        <button class="polaroid more" type="button" style="--r:0.8deg" aria-label="Open photo: Undated">
+          <img src="gallery/7.9-2.jpg" alt="Undated" loading="lazy" decoding="async">
+          <span>Undated</span>
+        </button>
+        <button class="polaroid more" type="button" style="--r:2.4deg" aria-label="Open photo: Undated">
+          <img src="gallery/SaveClip.App_651273901_17942329158077063_9145956708415044534_n.jpg" alt="Undated" loading="lazy" decoding="async">
+          <span>Undated</span>
+        </button>
+        <button class="polaroid more" type="button" style="--r:-1.6deg" aria-label="Open photo: Undated">
+          <img src="gallery/SaveClip.App_655239473_18046805345754364_6338044290693247426_n.jpg" alt="Undated" loading="lazy" decoding="async">
+          <span>Undated</span>
+        </button>
+        <button class="polaroid more" type="button" style="--r:0.0deg" aria-label="Open photo: Undated">
+          <img src="gallery/Screenshot_2024_0518_121756.jpg" alt="Undated" loading="lazy" decoding="async">
+          <span>Undated</span>
+        </button>
+        <button class="polaroid more" type="button" style="--r:1.6deg" aria-label="Open photo: Undated">
+          <img src="gallery/hjh.jpg" alt="Undated" loading="lazy" decoding="async">
+          <span>Undated</span>
+        </button>
+        <!-- HOME_GALLERY:END -->
+      </div>
+      <button class="show-all" id="gMore" type="button" hidden>Show all photos</button>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="blog-sec" id="blog">
+    <div class="sheet pad">
+      <div class="sec-head reveal">
+        <h2><span class="hl">Blog</span></h2>
+        <p class="scribble">thoughts &amp; writings</p>
+      </div>
+      <div class="posts">
+        <!-- HOME_BLOG:START -->
+        <article class="post-card" style="--r:-0.6deg">
+          <span class="post-date">October 10, 2026</span>
+          <h3><a class="post-link" href="blog/building-ae-motion.html" data-post="building-ae-motion">Building ae-motion</a></h3>
+          <p class="post-ex">I recently built ae-motion, an MCP (Model Context Protocol) server that lets Claude (or any MCP client) build, animate, preview and render motion graphics in a live Adobe After Effects project. Ask for "a 5 second lower third with an eased slide-in," and the model creates the comp, adds layers, sets keyframes, checks a preview frame and kicks off a render — all in the project you have open.</p>
+          <span class="post-go" aria-hidden="true">read →</span>
+        </article>
+        <!-- HOME_BLOG:END -->
+      </div>
+      <article class="reader" id="reader" hidden aria-live="polite"></article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="sheet contact-sheet">
+      <div class="reveal">
+        <h2 class="talk">Let's talk.</h2>
+        <p class="note small">say hi, the dino doesn't bite.</p>
+      </div>
+      <div class="links reveal">
+        <a href="mailto:dhannjaysingh2006@gmail.com" style="--c:#f5e50a;--r:-2deg">Email</a>
+        <a href="https://x.com/dhaannjaay" target="_blank" rel="noopener" style="--c:#8fd8e3;--r:2deg">X</a>
+        <a href="https://github.com/dha-aa" target="_blank" rel="noopener" style="--c:#9fe39a;--r:-1deg">GitHub</a>
+        <a href="https://linkedin.com/in/dhaaa" target="_blank" rel="noopener" style="--c:#a99cff;--r:3deg">LinkedIn</a>
+      </div>
+
+      <div class="dino" aria-hidden="true">
+        <span class="rawr">rawr. render complete.</span>
+        <svg viewBox="0 0 160 120" width="170" height="128">
+          <defs>
+            <filter id="stk" x="-10%" y="-10%" width="120%" height="120%">
+              <feMorphology in="SourceAlpha" operator="dilate" radius="4" result="d"/>
+              <feFlood flood-color="#ffffff"/>
+              <feComposite in2="d" operator="in" result="w"/>
+              <feMerge><feMergeNode in="w"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <g filter="url(#stk)" fill="#4f7a4a">
+            <polygon points="6,60 72,46 80,72"/>
+            <ellipse cx="88" cy="62" rx="30" ry="22"/>
+            <polygon points="98,50 116,30 128,40 112,68"/>
+            <rect x="112" y="16" width="42" height="20" rx="6"/>
+            <rect x="118" y="38" width="30" height="8" rx="3" transform="rotate(12 118 38)"/>
+            <polygon points="80,74 93,74 91,100 98,108 80,108 85,100"/>
+            <polygon points="98,72 108,70 109,98 116,106 101,106 101,98"/>
+            <rect x="110" y="62" width="12" height="4" rx="2" transform="rotate(30 110 62)"/>
+          </g>
+          <circle cx="132" cy="23" r="2.4" fill="#fff"/>
+          <path d="M120 35l3 4 3-4 3 4 3-4 3 4" stroke="#fff" stroke-width="1.4" fill="none"/>
+        </svg>
       </div>
     </div>
+    <footer class="foot">© Dhananjay · cut, coded &amp; rendered by hand</footer>
   </section>
 
-  <section data-index="6">
-    <p class="statement">Let's talk.</p>
-    <div class="links">
-      <a href="mailto:dhannjaysingh2006@gmail.com">Email</a>
-      <a href="https://x.com/dhaannjaay" target="_blank">X</a>
-      <a href="https://github.com/dha-aa" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/dhaaa" target="_blank">LinkedIn</a>
-      <a href="blog/index.html">Blog</a>
-      <a href="gallery/index.html">Gallery</a>
-    </div>
-  </section>
+</main>
 
-  <div id="dots"></div>
-
+<!-- Photo viewer -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <div class="lb-top"><span id="lbCount"></span><button class="lb-close" id="lbClose" type="button">close ✕</button></div>
+  <div class="lb-stage">
+    <button class="lb-nav prev" id="lbPrev" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <img id="lbImg" alt="">
+    <button class="lb-nav next" id="lbNext" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  <p class="lb-cap" id="lbCap"></p>
 </div>
 
 <script src="js/site.js" defer></script>
-
 </body>
 </html>

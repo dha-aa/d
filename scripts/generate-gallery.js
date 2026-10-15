@@ -71,6 +71,40 @@ function generatePosition(index, total) {
   };
 }
 
+// Homepage gallery section: index.html, between the HOME_GALLERY markers.
+// Only the first HOME_VISIBLE photos show until "Show all" is pressed.
+const homePath = path.join(__dirname, '../index.html');
+const HOME_VISIBLE = 9;
+
+function escapeAttr(value) {
+  return String(value).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+}
+
+function updateHomepage(images) {
+  if (!fs.existsSync(homePath)) return;
+  const home = fs.readFileSync(homePath, 'utf8');
+  const markers = /<!-- HOME_GALLERY:START -->[\s\S]*?<!-- HOME_GALLERY:END -->/;
+  if (!markers.test(home)) {
+    throw new Error('index.html is missing HOME_GALLERY markers');
+  }
+
+  const items = images.map((file, i) => {
+    const label = escapeAttr(formatDate(extractDate(file)));
+    const src = escapeAttr('gallery/' + encodeURI(file));
+    const tilt = ((((i * 37) % 7) - 3) * 0.8).toFixed(1);
+    const more = i >= HOME_VISIBLE ? ' more' : '';
+    return `
+        <button class="polaroid${more}" type="button" style="--r:${tilt}deg" aria-label="Open photo: ${label}">
+          <img src="${src}" alt="${label}" loading="lazy" decoding="async">
+          <span>${label}</span>
+        </button>`;
+  }).join('');
+
+  fs.writeFileSync(homePath, home.replace(markers,
+    `<!-- HOME_GALLERY:START -->${items}\n        <!-- HOME_GALLERY:END -->`));
+  console.log(`✅ Updated homepage gallery with ${images.length} images`);
+}
+
 // Generate gallery HTML
 function generateGallery() {
   // Read gallery directory
@@ -114,7 +148,7 @@ function generateGallery() {
     }
 
     html += `    <div class="gallery-item" style="top: ${pos.top}%; left: ${pos.left}%; width: ${pos.width}%; transform: rotate(${pos.rotation}deg);">
-      <img src="${file}" alt="${formatDate(date)}">
+      <img src="${file}" alt="${formatDate(date)}" loading="lazy" decoding="async">
     </div>\n`;
   });
 
@@ -126,6 +160,9 @@ function generateGallery() {
 
   // Write output
   fs.writeFileSync(outputPath, output);
+
+  // Also fill the gallery section on the homepage
+  updateHomepage(sortedImages);
 
   console.log(`✅ Generated gallery with ${sortedImages.length} images`);
 }
