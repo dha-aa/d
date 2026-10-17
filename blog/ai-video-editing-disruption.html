@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI and the Future of Video Creation</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <meta name="theme-color" content="#19191c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Archivo:wght@400;600;700&amp;family=Caveat:wght@600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap">
+  <link rel="stylesheet" href="../css/blog.css">
+</head>
+<body class="blog-page">
+
+  <div class="blog-container">
+    <a href="../blog/index.html" class="back-link">← Back to blog</a>
+
+    <div class="blog-header">
+      <h1 class="blog-title">AI and the Future of Video Creation</h1>
+      <div class="blog-meta">October 17, 2026</div>
+    </div>
+
+    <div class="blog-content">
+      <p>I think video editing is the next industry AI is going to disrupt.</p>
+
+      <p>We're moving toward a future where you can no longer blindly trust what you see or hear in a video. AI-generated video, audio, and editing are becoming so good that distinguishing real from artificial content will get increasingly difficult.</p>
+
+      <p>Right now, I can already automate research, voice-overs, video generation, and editing.</p>
+
+      <p>So, what's actually left? For me, it comes down to two things:</p>
+
+      <h2>1. Script — What story are we telling?</h2>
+
+      <p>I believe I could automate the entire scriptwriting process by building the right AI harness around it. The tools are already there, and I can connect them to create an automated workflow. But here's the thing: I still want to write my own scripts.</p>
+
+      <p>Not because AI can't write them, but because I want to bring my own ideas, perspective, and personal taste into the story. I want the final result to reflect how I think, not just what an AI thinks will work.</p>
+
+      <h2>2. Direction — What should the audience see?</h2>
+
+      <p>Knowing what to show, when to show it, how to transition between scenes, and how to make every visual serve the story is what separates an average video from an incredible one.</p>
+
+      <p>Even if AI can generate every asset, someone still needs to decide how those assets come together to tell a compelling story.</p>
+
+      <p>At least, that's how I see it right now.</p>
+
+      <p>Perhaps direction will eventually be automated, too. Maybe taste will be the last real competitive advantage — or maybe AI will eventually figure that out as well.</p>
+
+      <p>Honestly, I don't know.</p>
+
+      <p>But look at what's already becoming possible.</p>
+
+      <p>With the right script, direction, and creative vision, a single person could potentially create animated films or anime that once required entire studios. And it's not just animation. We're getting increasingly capable of generating realistic video content, too.</p>
+
+      <p>The production pipeline is becoming accessible to everyone.</p>
+
+      <p>The question is no longer just whether you can create the visuals. It's whether you know what to create, how to present it, and what makes it worth watching.</p>
+
+      <p>I think that if you have access to these tools — and can afford to use them — you can create almost anything in the content space. The possibilities are expanding rapidly.</p>
+
+      <h2>The Tools You Need</h2>
+
+      <ul>
+        <li><strong>Claude</strong> — $200/month: For AI-powered planning, research, scripting workflows, and creative orchestration.</li>
+        <li><strong>ElevenLabs</strong> — $100/month: For realistic AI voice-overs.</li>
+        <li><strong>Higgsfield</strong> — $200/month: For AI video generation.</li>
+        <li><strong>Adobe After Effects</strong> — $29/month: For advanced motion graphics and visual compositing.</li>
+        <li><strong>Image generation</strong> — Free plan: For thumbnails, illustrations, and other visual assets.</li>
+      </ul>
+
+      <p>These are the budget figures I'm considering, not verified current prices. Actual pricing may vary by plan.</p>
+
+      <p>The tools themselves aren't the entire advantage. The real opportunity lies in connecting them, automating the production pipeline, and using them to execute your creative vision.</p>
+
+      <p>We're moving from an era where production skills were the bottleneck to one where creative judgment, storytelling, and direction may become the real differentiators.</p>
+
+      <p>And I'm trying to figure out just how far I can take this.</p>
+    </div>
+  </div>
+
+  <script>
+    // Add copy buttons to all code blocks
+    document.querySelectorAll('pre').forEach(pre => {
+      // Wrap pre in a div to handle button positioning
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-wrapper';
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+
+      const button = document.createElement('button');
+      button.className = 'copy-button';
+      button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+      </svg>`;
+      wrapper.appendChild(button);
+
+      button.addEventListener('click', async () => {
+        const code = pre.querySelector('code').textContent;
+        try {
+          await navigator.clipboard.writeText(code);
+          button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>`;
+          button.classList.add('copied');
+          setTimeout(() => {
+            button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>`;
+            button.classList.remove('copied');
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
